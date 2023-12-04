@@ -54,6 +54,7 @@ func (c *Compactor) deployment() (runtime.Object, reconciler.DesiredState, error
 								Args: []string{
 									"compact",
 									"--log.level=info",
+									"--debug.accept-malformed-index",
 									"--http-address=" + compactor.HTTPAddress,
 									"--http-grace-period=" + strconv.Itoa(int(math.Floor(compactor.HTTPGracePeriod.Duration.Seconds()))) + "s",
 									"--data-dir=" + compactor.DataDir,
